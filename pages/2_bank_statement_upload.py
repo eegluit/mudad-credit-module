@@ -5,6 +5,14 @@ import pandas as pd
 import os
 import tabula
 
+st.title(":red[Bank Statement]")
+
+result = pd.read_csv('data.csv')
+
+last_row = result.tail(1)
+
+st.dataframe(last_row)
+
 # Create a file uploader widget
 uploaded_file = st.file_uploader("Choose a file", type=["csv", "xlsx", "pdf"])
 
@@ -20,11 +28,14 @@ if uploaded_file:
         st.write(df)
     elif file_extension == '.pdf':
         # st.pdf_viewer(uploaded_file)
-        df = tabula.read_pdf(uploaded_file, pages='all')[0]
-        tabula.convert_into(uploaded_file, "convertedpdf.csv", output_format="csv", pages='all')
-        df2 = pd.read_csv('convertedpdf.csv', error_bad_lines=False)
+        try:       
+            df = tabula.read_pdf(uploaded_file, pages='all')[0]
+            tabula.convert_into(uploaded_file, "convertedpdf.csv", output_format="csv", pages='all')
+            df2 = pd.read_csv('convertedpdf.csv', error_bad_lines=False)
+            st.write(df2)
+        except IndexError:
+            st.write("Error: Please upload a different file")
 
-        st.write(df2)
 
     else:
         st.warning("Please upload a valid file type i.e csv, excel or pdf")

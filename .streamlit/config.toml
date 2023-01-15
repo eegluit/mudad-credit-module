@@ -1,0 +1,10 @@
+[theme]
+base="dark"
+primaryColor="#914bff"
+
+
+[mongo]
+host = "localhost"
+port = 27017
+username = "jsankalp"
+password = "CdPSW7ZhGXm9DqF3"
