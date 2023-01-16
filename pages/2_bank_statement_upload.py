@@ -11,7 +11,7 @@ result = pd.read_csv('data.csv')
 
 last_row = result.tail(1)
 
-st.dataframe(last_row)
+# st.dataframe(last_row)
 
 # Create a file uploader widget
 uploaded_file = st.file_uploader("Choose a file", type=["csv", "xlsx", "pdf"])

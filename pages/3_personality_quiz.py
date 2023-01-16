@@ -5,7 +5,7 @@ import streamlit as st
 result = pd.read_csv('data.csv')
 lr = result.index[-1]
 last_row = result.tail(1)
-st.dataframe(last_row)
+# st.dataframe(last_row)
 
 
 # Question 1
@@ -49,8 +49,7 @@ question_10 = "How do you adjust to new changes when you have no control over th
 options_10 = ["Strongly Agree", "Somewhat Agree", "Neutral", "Somewhat Disagree", "Strongly Disagree"]
 
 
-# df = pd.DataFrame(columns=["Quesion 1", "Quesion 2" , "Quesion 3" , "Quesion 4", "Quesion 5",
-#                         "Quesion 6", "Quesion 7","Quesion 8", "Quesion 9", "Quesion 10"])
+
 # Personality Test
 st.title(":red[Personality Test]")
 st.header("Hi " + result.iloc[-1,0])
@@ -75,22 +74,4 @@ if st.button('Submit'):
     
     result.to_csv('data.csv', index=False)
 
-    # df = df.append({"Quesion 1" : q1_answer, "Quesion 2" : q2_answer , 
-    #                 "Quesion 3" : q3_answer , "Quesion 4" : q4_answer,
-    #                 "Quesion 5" : q5_answer,"Quesion 6" : q6_answer, 
-    #                 "Quesion 7" : q7_answer,"Quesion 8" : q8_answer, 
-    #                 "Quesion 9" : q9_answer, "Quesion 10" : q10_answer}, ignore_index=True)
-
-
-                
-    # st.dataframe(df)
-
     st.write("Your Response has been submitted")
-    
-    # st.write("Your answers are:")
-    # st.write("Q1: " + q1_answer)
-    # st.write("Q2: " + q2_answer)
-    # st.write("Q3: " + q3_answer)
-    # st.write("Q3: " + q3_answer)
-    # st.write("Q3: " + q3_answer)
-    # st.write("Q3: " + q3_answer)

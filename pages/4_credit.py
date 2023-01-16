@@ -6,7 +6,7 @@ result = pd.read_csv('data.csv')
 lr = result.index[-1]
 
 last_row = result.tail(1)
-st.dataframe(last_row)
+# st.dataframe(last_row)
 
 
 st.title("Hi " + result.iloc[-1,0])
